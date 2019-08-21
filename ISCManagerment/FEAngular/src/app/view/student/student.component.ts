@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Students } from '../../models/students'
+import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
+import { fakeStudents } from '../../models/fake-students'
 
 @Component({
   selector: 'app-student',
@@ -6,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
-
+   
+  students = fakeStudents
   constructor() { }
 
   ngOnInit() {

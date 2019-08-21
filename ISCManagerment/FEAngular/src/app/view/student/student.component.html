@@ -8,11 +8,12 @@
     </div>
   </div>
 </header>
-    
-      <!-- SEARCH -->
+
+<!-- SEARCH -->
 <section id="search" class="py-4 mb-4 bg-light">
   <div class="container">
     <div class="row">
+        <button type="button" class="btn btn-dark col">Add Student</button>
       <div class="col-md-6 ml-auto">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search Students...">
@@ -24,26 +25,44 @@
     </div>
   </div>
 </section>
-    
-      <!-- USERS -->
+
+<!-- USERS -->
 <section id="users">
   <div class="container">
     <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h4>Latest Students</h4>
+            <h4>Students</h4>
           </div>
           <table class="table table-striped">
             <thead class="thead-dark">
               <tr>
-                <th>#</th>
+                <th>StudentID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
+              <tr *ngFor="let eachStudent of students">
+                <td>{{ eachStudent.id}}</td>
+                <td>{{ eachStudent.name}}</td>
+                <td>{{eachStudent.email}}</td>
+                <td>
+                  <a href="detail" class="btn btn-secondary">
+                    <i class="fas fa-angle-double-right"></i> Edit
+                  </a>
+                </td>
+                <td>
+                    <a href="detail" class="btn btn-secondary">
+                        <i class="fas fa-angle-double-right"></i> Delete
+                      </a>
+                </td>
+              </tr>
+            </tbody>
+            <!-- <tbody>
               <tr>
                 <td>1</td>
                 <td>John Doe</td>
@@ -74,7 +93,7 @@
                   </a>
                 </td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
         </div>
       </div>

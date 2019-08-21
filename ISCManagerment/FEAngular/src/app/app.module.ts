@@ -15,7 +15,8 @@ import { LoginComponent } from './view/login/login.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
-
+//Services
+import { StudentsService } from './services/students.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { CourseComponent } from './view/course/course.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ StudentsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
