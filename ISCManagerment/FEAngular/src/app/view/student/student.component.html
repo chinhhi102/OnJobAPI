@@ -46,17 +46,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let eachStudent of students">
+              <tr *ngFor="let eachStudent of students"
+              (class.selecected)="eachStudent==selecectedStuend"
+              (click)="onSelect(eachStudent)">
                 <td>{{ eachStudent.id}}</td>
                 <td>{{ eachStudent.name}}</td>
                 <td>{{eachStudent.email}}</td>
                 <td>
-                  <a href="detail" class="btn btn-secondary">
+                  <a routerLink='/detail' class="btn btn-secondary">
                     <i class="fas fa-angle-double-right"></i> Edit
                   </a>
                 </td>
                 <td>
-                    <a href="detail" class="btn btn-secondary">
+                    <a routerLink='/detail' class="btn btn-secondary">
                         <i class="fas fa-angle-double-right"></i> Delete
                       </a>
                 </td>
@@ -68,7 +70,7 @@
                 <td>John Doe</td>
                 <td>jdoe@gmail.com</td>
                 <td>
-                  <a href="detail" class="btn btn-secondary">
+                  <a routerLink='/detail' class="btn btn-secondary">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a>
                 </td>
@@ -78,7 +80,7 @@
                 <td>Harry White</td>
                 <td>harry@yahoo.com</td>
                 <td>
-                  <a href="detail" class="btn btn-secondary">
+                  <a routerLink='/detail' class="btn btn-secondary">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a>
                 </td>
@@ -88,7 +90,7 @@
                 <td>Mary Johnson</td>
                 <td>mary@gmail.com</td>
                 <td>
-                  <a href="detail" class="btn btn-secondary">
+                  <a routerLink='/detail' class="btn btn-secondary">
                     <i class="fas fa-angle-double-right"></i> Details
                   </a>
                 </td>

@@ -12,8 +12,14 @@ export class StudentComponent implements OnInit {
    
   students = fakeStudents
   constructor() { }
-
+  
   ngOnInit() {
   }
-
+  //Định nghĩa hàm khi select Student
+  selectedStudent: Students;
+  onSelect(student: Students): void {
+      this.selectedStudent = student;
+      console.log(`selectedStudent = ${JSON.stringify(this.selectedStudent)}`);
+      alert(`selectedStudent = ${JSON.stringify(this.selectedStudent)}`);
+  }
 }
