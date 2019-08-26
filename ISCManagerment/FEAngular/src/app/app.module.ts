@@ -1,5 +1,8 @@
+//Import
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +19,7 @@ import { ProfileComponent } from './view/profile/profile.component';
 import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
 //Services
-import { StudentsService } from './services/students.service';
+import { StudentService } from './services/student.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +38,11 @@ import { StudentsService } from './services/students.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ StudentsService ],
+  providers: [ StudentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

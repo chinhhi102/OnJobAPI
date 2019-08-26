@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Students } from '../../models/students'
-import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
-import { fakeStudents } from '../../models/fake-students'
+import { Observable } from "rxjs";
+import { StudentService } from "../../services/student.service";
+import { Student } from "../../models/student";
+import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-student',
@@ -9,17 +11,30 @@ import { fakeStudents } from '../../models/fake-students'
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
-   
-  students = fakeStudents
-  constructor() { }
+  students: Observable<Student[]>;
   
+  constructor(private studentService: StudentService,
+    private router: Router) {}
+
   ngOnInit() {
+    this.reloadData();
   }
-  //Định nghĩa hàm khi select Student
-  selectedStudent: Students;
-  onSelect(student: Students): void {
-      this.selectedStudent = student;
-      console.log(`selectedStudent = ${JSON.stringify(this.selectedStudent)}`);
-      alert(`selectedStudent = ${JSON.stringify(this.selectedStudent)}`);
+
+  reloadData() {
+    this.students = this.studentService.getStudentList();
+  }
+
+  deleteStudent(id: number) {
+    this.studentService.deleteStudent(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+  studentDetails(id: number){
+    this.router.navigate(['details', id]);
   }
 }
