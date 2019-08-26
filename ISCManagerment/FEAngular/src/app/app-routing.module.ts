@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+//Component
 import { HomeComponent } from './view/home/home.component';
 import { StudentComponent} from './view/student/student.component';
 import { LoginComponent} from './view/login/login.component';
@@ -11,9 +11,11 @@ import { SchoolComponent} from './view/school/school.component';
 import { SettingComponent} from './view/setting/setting.component';
 import { SubjectComponent} from './view/subject/subject.component';
 import { CourseComponent} from './view/course/course.component';
+import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
+import { CreateStudentComponent } from './view/student/create-student/create-student.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'student',pathMatch:'full'},
   {path: 'home', component: HomeComponent},
   {path: 'student', component: StudentComponent},
   {path: 'login', component: LoginComponent},
@@ -23,7 +25,8 @@ const routes: Routes = [
   {path: 'school', component: SchoolComponent},
   {path: 'setting', component: SettingComponent},
   {path: 'subject', component: SubjectComponent},
-  {path: 'course', component: CourseComponent}
+  {path: 'details/:id', component: StudentDetailsComponent},
+  {path: 'student/add', component: CreateStudentComponent}
 ];
 
 @NgModule({

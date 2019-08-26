@@ -18,8 +18,11 @@ import { LoginComponent } from './view/login/login.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
+import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
+import { CreateStudentComponent } from './view/student/create-student/create-student.component';
 //Services
 import { StudentService } from './services/student.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,9 @@ import { StudentService } from './services/student.service';
     LoginComponent,
     ProfileComponent,
     SettingComponent,
-    CourseComponent
+    CourseComponent,
+    StudentDetailsComponent,
+    CreateStudentComponent
   ],
   imports: [
     BrowserModule,
