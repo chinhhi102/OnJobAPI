@@ -3,6 +3,7 @@ import { StudentService } from '../../../services/student.service';
 import { StudentComponent } from '../student.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Student } from '../../../models/student';
+import { __values } from 'tslib';
 
 
 @Component({
@@ -27,6 +28,10 @@ export class StudentDetailsComponent implements OnInit {
         console.log(data)
         this.student = data;
       }, error => console.log(error));
+  }
+
+  update(): void {
+    this.studentService.updateStudent(this.student,this.id).subscribe(()=>this.list());
   }
   
   list(){

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,11 @@ export class StudentService {
     return this.http.post(`${this.baseUrl}`, student);
   }
 
-  updateStudent(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  // updateStudent(id: number, value: any): Observable<Object> {
+  //   return this.http.put(`${this.baseUrl}/${id}`,value);
+  // }
+  updateStudent(student: Object,id:number): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`,student)
   }
 
   deleteStudent(id: number): Observable<any> {
