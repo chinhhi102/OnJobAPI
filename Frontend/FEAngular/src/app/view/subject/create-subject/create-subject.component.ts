@@ -24,19 +24,19 @@ export class CreateSubjectComponent implements OnInit {
     this.subject = new Subject();
   }
 
-  save2() {
+  savesub() {
     this.subjectService.createSubject(this.subject)
       .subscribe(data => console.log(data), error => console.log(error));
     this.subject = new Subject();
-    this.gotoList2();
+    this.gotoListsub();
   }
 
-  onSubmit2() {
+  onSubmitsub() {
     this.submitted = true;
-    this.save2();    
+    this.savesub();    
   }
 
-  gotoList2() {
+  gotoListsub() {
     this.router.navigate(['/subject']);
   }
 }

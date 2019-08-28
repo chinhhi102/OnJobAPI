@@ -30,11 +30,11 @@ export class SubjectDetailsComponent implements OnInit {
       }, error => console.log(error));
   }
 
-  update2(): void {
-    this.subjectService.updateSubject(this.subject,this.id).subscribe(()=>this.list2());
+  updatesub(): void {
+    this.subjectService.updateSubject(this.subject,this.id).subscribe(()=>this.listsub());
   }
   
-  list2(){
+  listsub(){
     this.router.navigate(['subject']);
   }
 }
