@@ -1,9 +1,5 @@
 package phanlamtruonghai.iscmanagement.controller;
 
-<<<<<<< HEAD
-public class SchoolController {
-
-=======
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,5 +72,4 @@ public class SchoolController {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
->>>>>>> 87c7a516e7fcf3e4e24524ff36d1915412f5ee98
 }

@@ -1,10 +1,5 @@
 package phanlamtruonghai.iscmanagement.model;
 
-<<<<<<< HEAD
-public class School {
-//	private 
-}
-=======
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -88,4 +83,3 @@ public class School {
 	
 	
 }
->>>>>>> 87c7a516e7fcf3e4e24524ff36d1915412f5ee98

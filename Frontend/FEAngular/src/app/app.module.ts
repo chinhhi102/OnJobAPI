@@ -24,20 +24,16 @@ import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
 import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
 import { CreateStudentComponent } from './view/student/create-student/create-student.component';
-<<<<<<< HEAD
 import { JwPaginationComponent } from 'jw-angular-pagination';
 
 //Services
-import { StudentService } from './services/student.service';
 import { CreateMajorComponent } from './view/major/create-major/create-major.component';
 import { MajorDetailComponent } from './view/major/major-detail/major-detail.component';
-=======
 import { SubjectDetailsComponent } from './view/subject/subject-details/subject-details.component';
 import { CreateSubjectComponent } from './view/subject/create-subject/create-subject.component';
 import { SchoolDetailsComponent } from './view/school/school-details/school-details.component';
 import { CreateSchoolComponent } from './view/school/create-school/create-school.component'
 
->>>>>>> 87c7a516e7fcf3e4e24524ff36d1915412f5ee98
 
 @NgModule({
   declarations: [
@@ -56,16 +52,12 @@ import { CreateSchoolComponent } from './view/school/create-school/create-school
     CourseComponent,
     StudentDetailsComponent,
     CreateStudentComponent,
-<<<<<<< HEAD
     CreateMajorComponent,
     MajorDetailComponent,
-    JwPaginationComponent
-=======
-    SubjectDetailsComponent,
+    JwPaginationComponent,
     CreateSubjectComponent,
     SchoolDetailsComponent,
     CreateSchoolComponent
->>>>>>> 87c7a516e7fcf3e4e24524ff36d1915412f5ee98
   ],
   imports: [
     BrowserModule,
