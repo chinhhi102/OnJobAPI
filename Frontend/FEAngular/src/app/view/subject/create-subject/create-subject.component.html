@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Create Subject</h3>
+    <div [hidden]="submitted" style="width: 400px;">
+      <form (ngSubmit)="onSubmit2()">
+        <div class="form-group">
+          <label for="name">Subject Code</label>
+          <input type="text" class="form-control" id="subName" required [(ngModel)]="subject.subCode" name="subName">
+        </div>
+  
+        <div class="form-group">
+          <label for="name">Subject Name</label>
+          <input type="text" class="form-control" id="subCode" required [(ngModel)]="subject.subName" name="subCode">
+        </div>
+  
+        <div class="form-group">
+          <label for="name">Score Pass</label>
+          <input type="text" class="form-control" id="subEmail" required [(ngModel)]="subject.subScorepass" name="subEmail">
+        </div>
+  
+        <div class="form-group">
+          <label for="name">Time</label>
+          <input type="text" class="form-control" id="subId" required [(ngModel)]="subject.subTime" name="subId">
+        </div>
+  
+       
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <h4>You submitted successfully!</h4>
+      <!-- <button class="btn btn-success" (click)="newSubject()">Add</button> -->
+    </div>
+  </div>
+  

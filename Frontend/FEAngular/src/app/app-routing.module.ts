@@ -13,6 +13,8 @@ import { SubjectComponent} from './view/subject/subject.component';
 import { CourseComponent} from './view/course/course.component';
 import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
 import { CreateStudentComponent } from './view/student/create-student/create-student.component';
+import { SubjectDetailsComponent } from './view/subject/subject-details/subject-details.component';
+import { CreateSubjectComponent } from './view/subject/create-subject/create-subject.component'
 
 const routes: Routes = [
   {path: '', redirectTo: 'student',pathMatch:'full'},
@@ -25,8 +27,10 @@ const routes: Routes = [
   {path: 'school', component: SchoolComponent},
   {path: 'setting', component: SettingComponent},
   {path: 'subject', component: SubjectComponent},
-  {path: 'details/:id', component: StudentDetailsComponent},
-  {path: 'student/add', component: CreateStudentComponent}
+  {path: 'student/details/:id', component: StudentDetailsComponent},
+  {path: 'student/add', component: CreateStudentComponent},
+  {path: 'subject/details/:id', component: SubjectDetailsComponent},
+  {path: 'subject/add', component: CreateSubjectComponent}
 ];
 
 @NgModule({

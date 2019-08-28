@@ -20,8 +20,12 @@ import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
 import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
 import { CreateStudentComponent } from './view/student/create-student/create-student.component';
+import { SubjectDetailsComponent } from './view/subject/subject-details/subject-details.component';
+import { CreateSubjectComponent } from './view/subject/create-subject/create-subject.component'
 //Services
 import { StudentService } from './services/student.service';
+import { SubjectService } from './services/subject.service';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { StudentService } from './services/student.service';
     SettingComponent,
     CourseComponent,
     StudentDetailsComponent,
-    CreateStudentComponent
+    CreateStudentComponent,
+    SubjectDetailsComponent,
+    CreateSubjectComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ import { StudentService } from './services/student.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ StudentService ],
+  providers: [ StudentService, SubjectService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
