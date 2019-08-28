@@ -13,6 +13,8 @@ import { SubjectComponent} from './view/subject/subject.component';
 import { CourseComponent} from './view/course/course.component';
 import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
 import { CreateStudentComponent } from './view/student/create-student/create-student.component';
+import { MajorDetailComponent } from './view/major/major-detail/major-detail.component';
+import { CreateMajorComponent } from './view/major/create-major/create-major.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'student',pathMatch:'full'},
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'detail', component: DetailComponent},
   {path: 'major', component: MajorComponent},
+  {path: 'major/detail/:id', component: MajorDetailComponent},
+  {path: 'major/add', component: CreateMajorComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'school', component: SchoolComponent},
   {path: 'setting', component: SettingComponent},

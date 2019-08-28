@@ -8,11 +8,14 @@
     </div>
   </div>
 </header>
-    
-      <!-- SEARCH -->
+
+<!-- SEARCH -->
 <section id="search" class="py-4 mb-4 bg-light">
   <div class="container">
     <div class="row">
+      <button type="button" class="btn btn-dark col">
+        <a routerLink="add" routerLinkActive="active">Add Major</a>
+      </button>
       <div class="col-md-6 ml-auto">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search  Majors...">
@@ -24,8 +27,8 @@
     </div>
   </div>
 </section>
-    
-      <!-- POSTS -->
+
+<!-- POSTS -->
 <section id="courses">
   <div class="container">
     <div class="row">
@@ -37,102 +40,43 @@
             <thead class="thead-dark">
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Subject</th>
-                <th>Date</th>
+                <th>Major Name</th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Course One</td>
-                <td>Web Development</td>
-                <td>May 10 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
+              <tr *ngFor="let major of majors | async">
+                <td>{{major.id}}</td>
+                <td>{{major.mjName}}</td>
+                <td><button (click)="deleteMajor(major.id)" class="btn btn-danger">Delete</button>
+                  <button (click)="majorDetails(major.id)" class="btn btn-info"
+                    style="margin-left: 10px">Details</button>
                 </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Course Two</td>
-                <td>Tech Gadgets</td>
-                <td>May 11 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Course Three</td>
-                <td>Web Development</td>
-                <td>May 13 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Course Four</td>
-                <td>Business</td>
-                <td>May 15 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Course Five</td>
-                <td>Web Development</td>
-                <td>May 17 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Course Six</td>
-                <td>Health & Wellness</td>
-                <td>May 20 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
+                <td></td>
               </tr>
             </tbody>
           </table>
 
           <!-- PAGINATION -->
-          <nav class="ml-4">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a href="#" class="page-link">Previous</a>
+          <ul *ngIf="pager.pages && pager.maxPage" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
               </li>
-              <li class="page-item active">
-                <a href="#" class="page-link">1</a>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
               </li>
-              <li class="page-item">
-                <a href="#" class="page-link">2</a>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
               </li>
-              <li class="page-item">
-                <a href="#" class="page-link">3</a>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
               </li>
-              <li class="page-item">
-                <a href="#" class="page-link">Next</a>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
               </li>
-            </ul>
-          </nav>
+          </ul>
+
         </div>
       </div>
     </div>

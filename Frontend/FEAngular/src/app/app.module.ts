@@ -20,8 +20,12 @@ import { SettingComponent } from './view/setting/setting.component';
 import { CourseComponent } from './view/course/course.component';
 import { StudentDetailsComponent } from './view/student/student-details/student-details.component';
 import { CreateStudentComponent } from './view/student/create-student/create-student.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+
 //Services
 import { StudentService } from './services/student.service';
+import { CreateMajorComponent } from './view/major/create-major/create-major.component';
+import { MajorDetailComponent } from './view/major/major-detail/major-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { StudentService } from './services/student.service';
     SettingComponent,
     CourseComponent,
     StudentDetailsComponent,
-    CreateStudentComponent
+    CreateStudentComponent,
+    CreateMajorComponent,
+    MajorDetailComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
