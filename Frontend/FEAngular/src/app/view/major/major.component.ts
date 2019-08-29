@@ -13,7 +13,7 @@ import { PagerService } from 'src/app/services/pager.service';
 })
 export class MajorComponent implements OnInit {
 
-  majors: Major[];
+  majors: Observable<Major[]>;
 
   // pager object
   pager: any = {};
@@ -32,14 +32,15 @@ export class MajorComponent implements OnInit {
   }
 
   reloadData() {
-    this.majorService.getMajorList().subscribe(data => {
-      this.majors = data;
-      console.log(data);
+    this.majors=this.majorService.getMajorList();
+    //.subscribe(data => {
+      //this.majors = data;
+      //console.log(data);
       //this.majors=data;
       //this.maxPage = this.majors.length;
       //this.setPage(1);
 
-    });
+    //});
   }
 
   deleteMajor(id: number) {
@@ -57,11 +58,11 @@ export class MajorComponent implements OnInit {
     this.pager = this.pagerService.getPager(this.maxPage, page);
 
     // get current page of items
-    this.pagedItems = this.majors.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    //this.pagedItems = this.majors.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
   majorDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['major/details', id]);
   }
   /*onChangePage(pageOfItems: Array<any>) {
     // update current page of items

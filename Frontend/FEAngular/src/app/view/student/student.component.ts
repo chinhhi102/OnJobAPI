@@ -37,4 +37,6 @@ export class StudentComponent implements OnInit {
   studentDetails(id: number){
     this.router.navigate(['student/details', id]);
   }
+
+  
 }

@@ -9,11 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Indexed;
+
 @Entity
 @Table(name = "courses")
+@Indexed
 public class Course {
 	private long id;
 	private String Topic;
+    @Field(termVector = TermVector.YES, analyze=Analyze.YES, store=Store.NO)
+	@Type(type = "text")
 	private Date Start;
 	private Date End;
 	private String Description;

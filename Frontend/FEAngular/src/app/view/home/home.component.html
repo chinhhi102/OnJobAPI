@@ -56,11 +56,10 @@
                 <td>{{course.topic}}</td>
                 <td>{{course.start}}</td>
                 <td>{{course.end}}</td>
-                <td><button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button>
-                  <button (click)="courseDetails(course.id)" class="btn btn-info"
-                    style="margin-left: 10px">Details</button>
-                </td>
                 <td></td>
+              </tr>
+              <tr **ngFor="let subject of subjects | async">
+                <td>{{subject.name}}</td>
               </tr>
             </tbody>
           </table>
