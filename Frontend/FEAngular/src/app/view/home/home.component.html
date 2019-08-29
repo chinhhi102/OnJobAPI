@@ -12,7 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+        <a routerLink="add" routerLinkActive="active" class="btn btn-primary btn-block">
           <i class="fas fa-plus"></i> Add Course
         </a>
       </div>
@@ -43,79 +43,24 @@
             <thead class="thead-dark">
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Subjects</th>
-                <th>Date</th>
+                <th>Topic</th>
+                <th>Subject</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Course One</td>
-                <td>Web Development</td>
-                <td>May 10 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
+              <tr *ngFor="let course of courses | async">
+                <td>{{course.id}}</td>
+                <td>{{course.topic}}</td>
+                <td>{{course.start}}</td>
+                <td>{{course.end}}</td>
+                <td><button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button>
+                  <button (click)="courseDetails(course.id)" class="btn btn-info"
+                    style="margin-left: 10px">Details</button>
                 </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Course Two</td>
-                <td>Tech Ga
-                  dgets</td>
-                <td>May 11 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Course Three</td>
-                <td>Web Development</td>
-                <td>May 13 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Course Four</td>
-                <td>Business</td>
-                <td>May 15 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Course Five</td>
-                <td>Web Development</td>
-                <td>May 17 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Course Six</td>
-                <td>Health & Wellness</td>
-                <td>May 20 2018</td>
-                <td>
-                  <a routerLink='/detail' class="btn btn-secondary">
-                    <i class="fas fa-angle-double-right"></i> Details
-                  </a>
-                </td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -148,7 +93,7 @@
             <h4 class="display-4">
               <i class="fas fa-students"></i> 4
             </h4>
-            <a href="students.html" class="btn btn-outline-light btn-sm">View</a>
+            <a routerLink='/student' class="btn btn-outline-light btn-sm">View</a>
           </div>
         </div>
       </div>

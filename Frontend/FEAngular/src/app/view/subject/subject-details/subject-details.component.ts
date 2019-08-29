@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SubjectService } from '../../../services/subject.service';
-import { SubjectComponent } from '../subject.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from '../../../models/subject';
-import { __values } from 'tslib';
 
 
 @Component({

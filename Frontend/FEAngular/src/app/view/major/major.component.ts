@@ -19,14 +19,14 @@ export class MajorComponent implements OnInit {
   pager: any = {};
 
   // paged items
-  pagedItems: any[];
+  pagedItems: Array<any>;
 
   maxPage: number;
-  
+
   constructor(private majorService: MajorService,
     private router: Router,
     private pagerService: PagerService) {}
-
+    
   ngOnInit() {
     this.reloadData();
   }
@@ -35,8 +35,10 @@ export class MajorComponent implements OnInit {
     this.majorService.getMajorList().subscribe(data => {
       this.majors = data;
       console.log(data);
-      this.maxPage = this.majors.length;
-      this.setPage(1);
+      //this.majors=data;
+      //this.maxPage = this.majors.length;
+      //this.setPage(1);
+
     });
   }
 
@@ -56,10 +58,14 @@ export class MajorComponent implements OnInit {
 
     // get current page of items
     this.pagedItems = this.majors.slice(this.pager.startIndex, this.pager.endIndex + 1);
-}
+  }
 
   majorDetails(id: number){
     this.router.navigate(['details', id]);
   }
+  /*onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+}*/
 
 }

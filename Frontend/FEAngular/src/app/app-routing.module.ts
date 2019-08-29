@@ -18,7 +18,9 @@ import { CreateMajorComponent } from './view/major/create-major/create-major.com
 import { SubjectDetailsComponent } from './view/subject/subject-details/subject-details.component';
 import { CreateSubjectComponent } from './view/subject/create-subject/create-subject.component'
 import { SchoolDetailsComponent } from './view/school/school-details/school-details.component';
-import { CreateSchoolComponent } from './view/school/create-school/create-school.component'
+import { CreateSchoolComponent } from './view/school/create-school/create-school.component';
+import { CreateCourseComponent } from './view/course/create-course/create-course.component';
+import { CourseDetailsComponent } from './view/course/course-details/course-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'student',pathMatch:'full'},
@@ -38,7 +40,10 @@ const routes: Routes = [
   {path: 'subject/details/:id', component: SubjectDetailsComponent},
   {path: 'subject/add', component: CreateSubjectComponent},
   {path: 'school/details/:id', component: SchoolDetailsComponent},
-  {path: 'school/add', component: CreateSchoolComponent}
+  {path: 'school/add', component: CreateSchoolComponent},
+  {path: 'course', component: CourseComponent},
+  {path: 'course/add', component: CreateCourseComponent},
+  {path: 'course/details/:id', component: CourseDetailsComponent}
 ];
 
 @NgModule({

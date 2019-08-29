@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import phanlamtruonghai.iscmanagement.exception.ResourceNotFoundException;
 import phanlamtruonghai.iscmanagement.repository.MajorRepository;
 import phanlamtruonghai.iscmanagement.model.Major;
-import phanlamtruonghai.iscmanagement.model.Student;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
