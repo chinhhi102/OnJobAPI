@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { CourseService } from 'src/app/services/course.service';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course';
+import { SubjectService } from 'src/app/services/subject.service';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,13 @@ import { Course } from 'src/app/models/course';
 })
 export class HomeComponent implements OnInit {
   courses: Observable<Course[]>;
+  numOfCourses: number;
+  numOfSubject: number;
+  numOfStudent: number;
   
   constructor(private courseService: CourseService,
+    private subjectService : SubjectService,
+    private studentService : StudentService,
     private router: Router) {}
 
   ngOnInit() {
@@ -21,6 +28,9 @@ export class HomeComponent implements OnInit {
 
   reloadData() {
     this.courses = this.courseService.getCourseList();
+    this.subjectService.getSubjectList().subscribe(data => this.numOfSubject = data.length);
+    this.studentService.getStudentList().subscribe(data => this.numOfStudent = data.length);
+    this.courses.subscribe(data => this.numOfCourses = data.length);
   }
 
   deleteCourse(id: number) {

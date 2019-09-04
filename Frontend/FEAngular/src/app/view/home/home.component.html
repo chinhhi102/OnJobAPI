@@ -54,11 +54,11 @@
               <tr *ngFor="let course of courses | async">
                 <td>{{course.id}}</td>
                 <td>{{course.topic}}</td>
-                <td>{{course.start}}</td>
-                <td>{{course.end}}</td>
                 <td></td>
+                <td>{{course.start | date }}</td>
+                <td>{{course.end | date }}</td>
               </tr>
-              <tr **ngFor="let subject of subjects | async">
+              <tr *ngFor="let subject of subjects | async">
                 <td>{{subject.name}}</td>
               </tr>
             </tbody>
@@ -70,7 +70,7 @@
           <div class="card-body">
             <h3>Courses</h3>
             <h4 class="display-4">
-              <i class="fas fa-pencil-alt"></i> 6
+              <i class="fas fa-pencil-alt"></i> {{numOfCourses}}
             </h4>
             <a routerLink='/course' class="btn btn-outline-light btn-sm">View</a>
           </div>
@@ -80,7 +80,7 @@
           <div class="card-body">
             <h3>Subjects</h3>
             <h4 class="display-4">
-              <i class="fas fa-folder"></i> 4
+              <i class="fas fa-folder"></i> {{numOfSubject}}
             </h4>
             <a routerLink='/subject' class="btn btn-outline-light btn-sm">View</a>
           </div>
@@ -90,7 +90,7 @@
           <div class="card-body">
             <h3>Student</h3>
             <h4 class="display-4">
-              <i class="fas fa-students"></i> 4
+              <i class="fas fa-students"></i> {{numOfStudent}}
             </h4>
             <a routerLink='/student' class="btn btn-outline-light btn-sm">View</a>
           </div>

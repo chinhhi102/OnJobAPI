@@ -85,24 +85,24 @@ public class CourseController {
 		return response;
 	}
 	
-	@GetMapping("/courses/espec")
-	public List<Course> findAllByOrPredicate(@PathVariable(value = "search") String search) {
-	    Specification<Course> spec = resolveSpecification(search);
-	    return courseRepository.findAll(spec);
-	}
+//	@GetMapping("/courses/espec")
+//	public List<Course> findAllByOrPredicate(@PathVariable(value = "search") String search) {
+//	    Specification<Course> spec = resolveSpecification(search);
+//	    return courseRepository.findAll(spec);
+//	}
 	 
-	protected Specification<Course> resolveSpecification(String searchParameters) {
-		CourseSpecificationsBuilder builder = new CourseSpecificationsBuilder();
-	    String operationSetExper = Joiner.on("|").join(SearchOperation.SIMPLE_OPERATION_SET);
-	    Pattern pattern = Pattern.compile(
-	      "(\\w+?)(" + operationSetExper + ")(\\p{Punct}?)(\\\\w+?)(\\p{Punct}?),");
-	    Matcher matcher = pattern.matcher(searchParameters + ",");
-	    while (matcher.find()) {
-	        builder.with(matcher.group(1), matcher.group(2), matcher.group(4), 
-	        matcher.group(3), matcher.group(5));
-	    }
-	     
-	    return builder.build();
-	}
+//	protected Specification<Course> resolveSpecification(String searchParameters) {
+//		CourseSpecificationsBuilder builder = new CourseSpecificationsBuilder();
+//	    String operationSetExper = Joiner.on("|").join(SearchOperation.SIMPLE_OPERATION_SET);
+//	    Pattern pattern = Pattern.compile(
+//	      "(\\w+?)(" + operationSetExper + ")(\\p{Punct}?)(\\\\w+?)(\\p{Punct}?),");
+//	    Matcher matcher = pattern.matcher(searchParameters + ",");
+//	    while (matcher.find()) {
+//	        builder.with(matcher.group(1), matcher.group(2), matcher.group(4), 
+//	        matcher.group(3), matcher.group(5));
+//	    }
+//	     
+//	    return builder.build();
+//	}
 	
 }
