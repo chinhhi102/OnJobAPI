@@ -3,10 +3,14 @@ package phanlamtruonghai.iscmanagement.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.persistence.criteria.Join;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 import phanlamtruonghai.iscmanagement.exception.ResourceNotFoundException;
 import phanlamtruonghai.iscmanagement.repository.CourseRepository;
 import phanlamtruonghai.iscmanagement.model.Course;
+import phanlamtruonghai.iscmanagement.model.SearchOperation;
+import phanlamtruonghai.iscmanagement.Specification.*;
+
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.QueryBuilders.*;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.action.search.*;
+import com.google.common.base.Joiner; 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -72,4 +84,25 @@ public class CourseController {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+	
+	@GetMapping("/courses/espec")
+	public List<Course> findAllByOrPredicate(@PathVariable(value = "search") String search) {
+	    Specification<Course> spec = resolveSpecification(search);
+	    return courseRepository.findAll(spec);
+	}
+	 
+	protected Specification<Course> resolveSpecification(String searchParameters) {
+		CourseSpecificationsBuilder builder = new CourseSpecificationsBuilder();
+	    String operationSetExper = Joiner.on("|").join(SearchOperation.SIMPLE_OPERATION_SET);
+	    Pattern pattern = Pattern.compile(
+	      "(\\w+?)(" + operationSetExper + ")(\\p{Punct}?)(\\\\w+?)(\\p{Punct}?),");
+	    Matcher matcher = pattern.matcher(searchParameters + ",");
+	    while (matcher.find()) {
+	        builder.with(matcher.group(1), matcher.group(2), matcher.group(4), 
+	        matcher.group(3), matcher.group(5));
+	    }
+	     
+	    return builder.build();
+	}
+	
 }
