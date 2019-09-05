@@ -9,7 +9,7 @@
   </div>
 </header>
 <section id="actions" class="py-4 mb-4 bg-light">
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col-md-3">
         <a routerLink="add" routerLinkActive="active" class="btn btn-primary btn-block">
@@ -27,7 +27,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <!-- POSTS -->
@@ -44,17 +44,15 @@
               <tr>
                 <th>#</th>
                 <th>Topic</th>
-                <th>Subject</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let course of courses | async">
-                <td>{{course.id}}</td>
+              <tr *ngFor="let course of courses | async; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{course.topic}}</td>
-                <td></td>
                 <td>{{course.start | date }}</td>
                 <td>{{course.end | date }}</td>
               </tr>

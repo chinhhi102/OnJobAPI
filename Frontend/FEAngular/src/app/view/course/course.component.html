@@ -50,11 +50,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let course of courses | async">
-                <td>{{course.id}}</td>
+              <tr *ngFor="let course of courses | async; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{course.topic}}</td>
-                <td>{{course.start}}</td>
-                <td>{{course.end}}</td>
+                <td>{{course.start | date }}</td>
+                <td>{{course.end | date }}</td>
                 <td><button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button>
                   <button (click)="courseDetails(course.id)" class="btn btn-info"
                     style="margin-left: 10px">Details</button>

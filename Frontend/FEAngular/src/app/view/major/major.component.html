@@ -47,8 +47,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let major of majors | async">
-                <td>{{major.id}}</td>
+              <tr *ngFor="let major of majors | async; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{major.mjName}}</td>
                 <td><button (click)="deleteMajor(major.id)" class="btn btn-danger">Delete</button>
                   <button (click)="majorDetails(major.id)" class="btn btn-info"

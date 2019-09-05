@@ -23,7 +23,7 @@ import { CreateCourseComponent } from './view/course/create-course/create-course
 import { CourseDetailsComponent } from './view/course/course-details/course-details.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'student',pathMatch:'full'},
+  {path: '', redirectTo: 'home',pathMatch:'full'},
   {path: 'home', component: HomeComponent},
   {path: 'student', component: StudentComponent},
   {path: 'login', component: LoginComponent},

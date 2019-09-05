@@ -52,8 +52,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let school of schools | async">
-                <td>{{school.id}}</td>
+              <tr *ngFor="let school of schools | async; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{school.schCode}}</td>
                 <td>{{school.schName}}</td>
                 <td>{{school.schAddress}}</td>

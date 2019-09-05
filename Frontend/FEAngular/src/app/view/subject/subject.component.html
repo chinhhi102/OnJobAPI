@@ -52,8 +52,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let subject of subjects | async">
-                <td>{{subject.id}}</td>
+              <tr *ngFor="let subject of subjects | async; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{subject.subCode}}</td>
                 <td>{{subject.subName}}</td>
                 <td>{{subject.subScorepass}}</td>
